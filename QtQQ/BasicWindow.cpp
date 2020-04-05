@@ -1,4 +1,6 @@
 #include "BasicWindow.h"
+#include "CommonUtils.h"
+#include "NotifyManager.h"
 
 #include <QFile>
 #include <QStyle>
@@ -10,9 +12,13 @@
 
 BasicWindow::BasicWindow(QWidget* parent)
 	: QDialog(parent), m_mousePressed(false) {
+	m_colorBackground = CommonUtils::getDefaultSkinColor();
+	
 	this->setWindowFlags(Qt::FramelessWindowHint);
 	this->setAttribute(Qt::WA_TranslucentBackground, true);
-	this->initTitleBar();
+
+	connect(NotifyManager::getInstance(), &NotifyManager::signalSkinChanged, 
+			this, &BasicWindow::onSignalSkinChanged);
 }
 
 BasicWindow::~BasicWindow() {}
@@ -32,12 +38,12 @@ void BasicWindow::loadStyleSheet(const QString& sheetName) {
 		QString b = QString::number(m_colorBackground.blue());
 
 		styleSheet += QString(R"(
-QWidget[titleskin=true] {
+QWidget[titleSkin=true] {
 	background-color: rgb(%1, %2, %3);
 	border-top-left-radius: 4px;
 }
 
-QWidget[bottomskin=true] {
+QWidget[bottomSkin=true] {
 	border-top: 1px solid rgba(%1, %2, %3, 100);
 	background-color: rgba(%1, %2, %3, 50);
 	border-bottom-left-radius: 4px;
@@ -46,15 +52,15 @@ QWidget[bottomskin=true] {
 )").arg(r).arg(g).arg(b);
 		this->setStyleSheet(styleSheet);
 
-		file.close();
 	}
+		file.close();
 }
 
 QPixmap BasicWindow::getRoundImage(const QPixmap& src, QPixmap& mask, QSize maskSize) {
 	if (maskSize == QSize(0, 0)) {
 		maskSize = mask.size();
 	} else {
-		mask.scaled(maskSize, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+		mask = mask.scaled(maskSize, Qt::KeepAspectRatio, Qt::SmoothTransformation);
 	}
 
 	// 保存转换后的头像
@@ -65,7 +71,7 @@ QPixmap BasicWindow::getRoundImage(const QPixmap& src, QPixmap& mask, QSize mask
 	painter.setCompositionMode(QPainter::CompositionMode_SourceOver);
 	painter.drawPixmap(0, 0, mask);
 	painter.setCompositionMode(QPainter::CompositionMode_SourceIn);
-	painter.drawPixmap(0, 0, src.scaled(Qt::KeepAspectRatio, Qt::SmoothTransformation));
+	painter.drawPixmap(0, 0, src.scaled(maskSize, Qt::KeepAspectRatio, Qt::SmoothTransformation));
 	painter.end();
 
 	return QPixmap::fromImage(std::move(resultImage));

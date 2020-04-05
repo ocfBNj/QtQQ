@@ -43,6 +43,9 @@
     <ClCompile Include="CommonUtils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="UserLogin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="CCMainWindow.h">
@@ -57,9 +60,15 @@
     <QtMoc Include="NotifyManager.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="UserLogin.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="CCMainWindow.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="UserLogin.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
