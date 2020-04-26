@@ -77,6 +77,8 @@ void TitleBar::paintEvent(QPaintEvent* event) {
 	if (width() != parentWidget()->width()) {
 		setFixedWidth(parentWidget()->width());
 	}
+
+	QWidget::paintEvent(event);
 }
 
 void TitleBar::mouseDoubleClickEvent(QMouseEvent* event) {

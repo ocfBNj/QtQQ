@@ -96,12 +96,12 @@ void BasicWindow::mousePressEvent(QMouseEvent* event) {
 	if (event->button() == Qt::LeftButton) {
 		m_mousePressed = true;
 		m_mousePoint = event->globalPos() - this->pos();
-		accept();
+		event->accept();
 	}
 }
 
 void BasicWindow::mouseMoveEvent(QMouseEvent* event) {
-	if (m_mousePressed && (event->button() == Qt::LeftButton)) {
+	if (m_mousePressed && (event->buttons() & Qt::LeftButton)) {
 		move(event->globalPos() - m_mousePoint);
 		event->accept();
 	}

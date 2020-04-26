@@ -42,6 +42,7 @@ void CommonUtils::loadStyleSheet(QWidget* widget, const QString& sheetName) {
 }
 
 void CommonUtils::setDefaultSkinColor(const QColor& color) {
+	auto ret = (const char* )("213");
 	const QString& path = QApplication::applicationDirPath() + "/" + QString("tradeprintinfo.ini");
 	QSettings settings(path, QSettings::IniFormat);
 	settings.setValue("DefaultSkin/red", color.red());
