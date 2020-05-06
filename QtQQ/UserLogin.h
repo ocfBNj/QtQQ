@@ -3,20 +3,18 @@
 #include "BasicWindow.h"
 #include "ui_UserLogin.h"
 
-class UserLogin : public BasicWindow
-{
-	Q_OBJECT
+class UserLogin : public BasicWindow {
+    Q_OBJECT
 
 public:
-	UserLogin(QWidget *parent = Q_NULLPTR);
-	~UserLogin();
+    UserLogin(QWidget* parent = Q_NULLPTR);
+    ~UserLogin();
 
 private slots:
-	void onLoginBtnClicked();
+    void onLoginBtnClicked();
 
 private:
-	void initControl();
+    void initControl();
 
-private:
-	Ui::UserLogin ui;
+    Ui::UserLogin ui;
 };

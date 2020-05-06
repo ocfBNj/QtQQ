@@ -1,21 +1,18 @@
-#include "SysTray.h"
-#include "CustomMenu.h"
-#include "CCMainWindow.h"
-
 #include <QWidget>
 #include <QAction>
 #include <memory>
 
+#include "SysTray.h"
+#include "CustomMenu.h"
+#include "CCMainWindow.h"
+
 SysTray::SysTray(QWidget* parent)
-    : parent(parent), QSystemTrayIcon(parent)
-{
+    : parent(parent), QSystemTrayIcon(parent) {
     initSystemTray();
     show();
 }
 
-SysTray::~SysTray()
-{
-}
+SysTray::~SysTray() {}
 
 void SysTray::initSystemTray() {
     setToolTip(QStringLiteral("QQ-ByCC"));
@@ -25,10 +22,10 @@ void SysTray::initSystemTray() {
 
 void SysTray::addSysTrayMenu() {
     auto customMenu = std::make_unique<CustomMenu>(parent);
-    customMenu->addCustomMenu("onShow", 
+    customMenu->addCustomMenu("onShow",
                               ":/Resources/MainWindow/app/logo.ico", QStringLiteral("打开主面板"));
     customMenu->addCustomMenu("onQuit",
-                              ":/Resources/MainWindow/app/page_close_btn_hover.png", 
+                              ":/Resources/MainWindow/app/page_close_btn_hover.png",
                               QStringLiteral("退出"));
 
     connect(customMenu->getAction("onShow"), &QAction::triggered, static_cast<CCMainWindow*>(parent), &CCMainWindow::onShowNormal);

@@ -1,17 +1,14 @@
 #include "TalkWindowItem.h"
 #include "CommonUtils.h"
 
-TalkWindowItem::TalkWindowItem(QWidget *parent)
-    : QWidget(parent)
-{
+TalkWindowItem::TalkWindowItem(QWidget* parent)
+    : QWidget(parent) {
     ui.setupUi(this);
 
     initControl();
 }
 
-TalkWindowItem::~TalkWindowItem()
-{
-}
+TalkWindowItem::~TalkWindowItem() {}
 
 void TalkWindowItem::setHeadPixmap(const QPixmap& pixmap) {
     QPixmap mask(":/Resources/MainWindow/head_mask.png");

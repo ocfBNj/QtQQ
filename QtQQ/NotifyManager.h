@@ -2,22 +2,21 @@
 
 #include <QObject>
 
-class NotifyManager : public QObject
-{
-	Q_OBJECT
+class NotifyManager : public QObject {
+    Q_OBJECT
 
 public:
-	NotifyManager();
-	~NotifyManager();
+    NotifyManager();
+    ~NotifyManager();
 
 signals:
-	void signalSkinChanged(const QColor& color);
+    void signalSkinChanged(const QColor& color);
 
 public:
-	static NotifyManager* getInstance();
+    static NotifyManager* getInstance();
 
-	void notifyOtherWindowChangeSkin(const QColor& color);
+    void notifyOtherWindowChangeSkin(const QColor& color);
 
 private:
-	static NotifyManager* instance;
+    static NotifyManager* instance;
 };

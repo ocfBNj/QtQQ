@@ -5,8 +5,7 @@
 
 #include "TalkWindowShell.h"
 
-class WindowManager : public QObject
-{
+class WindowManager : public QObject {
     Q_OBJECT
 
 public:

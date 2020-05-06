@@ -8,9 +8,8 @@
 constexpr int emotionColumn = 14;
 constexpr int emotionRow = 12;
 
-EmotionWindow::EmotionWindow(QWidget *parent)
-    : QWidget(parent)
-{
+EmotionWindow::EmotionWindow(QWidget* parent)
+    : QWidget(parent) {
     ui.setupUi(this);
     setWindowFlags(Qt::FramelessWindowHint | Qt::SubWindow);
     setAttribute(Qt::WA_TranslucentBackground);
@@ -19,9 +18,7 @@ EmotionWindow::EmotionWindow(QWidget *parent)
     initControl();
 }
 
-EmotionWindow::~EmotionWindow()
-{
-}
+EmotionWindow::~EmotionWindow() {}
 
 void EmotionWindow::addEmotion(int emotionNum) {
     hide();
@@ -42,9 +39,9 @@ void EmotionWindow::paintEvent(QPaintEvent* event) {
 
 void EmotionWindow::initControl() {
     CommonUtils::loadStyleSheet(this, "EmotionWindow");
-    
+
     for (int row = 0; row != emotionRow; row++) {
-        for (int column = 0 ; column != emotionColumn; column++) {
+        for (int column = 0; column != emotionColumn; column++) {
             EmotionLabelItem* label = new EmotionLabelItem(this);
             label->setEmotionName(row * emotionColumn + column);
 

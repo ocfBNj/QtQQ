@@ -2,12 +2,11 @@
 
 #include <QSystemTrayIcon>
 
-class SysTray : public QSystemTrayIcon
-{
+class SysTray : public QSystemTrayIcon {
     Q_OBJECT
 
 public:
-    SysTray(QWidget *parent);
+    SysTray(QWidget* parent);
     ~SysTray();
 
 public slots:

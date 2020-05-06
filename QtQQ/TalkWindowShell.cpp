@@ -16,7 +16,7 @@ TalkWindowShell::~TalkWindowShell() {}
 void TalkWindowShell::addTalkWindow(TalkWindow* talkWindow, TalkWindowItem* talkWindowItem, GroupType groupType) {
     ui.rightStackedWidget->addWidget(talkWindow);
     connect(m_emotionWindow.get(), &EmotionWindow::signalEmotionWindowHide, talkWindow, &TalkWindow::onSetEmotionBtnStatus);
-    
+
     QListWidgetItem* aItem = new QListWidgetItem(ui.listWidget);
     m_talkwindowItemMap.insert(aItem, talkWindow);
 

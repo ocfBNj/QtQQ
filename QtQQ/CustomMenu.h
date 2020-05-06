@@ -2,12 +2,11 @@
 
 #include <QMenu>
 
-class CustomMenu : public QMenu
-{
+class CustomMenu : public QMenu {
     Q_OBJECT
 
 public:
-    CustomMenu(QWidget *parent = nullptr);
+    CustomMenu(QWidget* parent = nullptr);
     ~CustomMenu();
 
     void addCustomMenu(const QString& text, const QString& icon, const QString& name);

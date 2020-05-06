@@ -2,17 +2,14 @@
 #include "QClickLabel.h"
 #include "NotifyManager.h"
 
-SkinWindow::SkinWindow(QWidget *parent)
-    : BasicWindow(parent)
-{
+SkinWindow::SkinWindow(QWidget* parent)
+    : BasicWindow(parent) {
     ui.setupUi(this);
     initContorl();
     loadStyleSheet("SkinWindow");
 }
 
-SkinWindow::~SkinWindow()
-{
-}
+SkinWindow::~SkinWindow() {}
 
 void SkinWindow::initContorl() {
     static QList<QColor> colorList = {

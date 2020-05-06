@@ -1,15 +1,12 @@
 #include "ContactItem.h"
 
-ContactItem::ContactItem(QWidget *parent)
-    : QWidget(parent)
-{
+ContactItem::ContactItem(QWidget* parent)
+    : QWidget(parent) {
     ui.setupUi(this);
     initControl();
 }
 
-ContactItem::~ContactItem()
-{
-}
+ContactItem::~ContactItem() {}
 
 void ContactItem::setUserName(const QString& userName) {
     ui.userName->setText(userName);

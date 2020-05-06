@@ -2,12 +2,11 @@
 
 #include <QLabel>
 
-class QClickLabel : public QLabel
-{
+class QClickLabel : public QLabel {
     Q_OBJECT
 
 public:
-    QClickLabel(QWidget *parent);
+    QClickLabel(QWidget* parent);
     ~QClickLabel();
 
 protected:

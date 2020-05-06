@@ -4,12 +4,11 @@
 #include "ui_SkinWindow.h"
 #include "BasicWindow.h"
 
-class SkinWindow : public BasicWindow
-{
+class SkinWindow : public BasicWindow {
     Q_OBJECT
 
 public:
-    SkinWindow(QWidget *parent = Q_NULLPTR);
+    SkinWindow(QWidget* parent = Q_NULLPTR);
     ~SkinWindow();
 
     void initContorl();

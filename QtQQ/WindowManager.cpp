@@ -5,13 +5,9 @@
 Q_GLOBAL_STATIC(WindowManager, theInstance);
 
 WindowManager::WindowManager()
-    : m_talkWindowShell(nullptr)
-{
-}
+    : m_talkWindowShell(nullptr) {}
 
-WindowManager::~WindowManager()
-{
-}
+WindowManager::~WindowManager() {}
 
 QWidget* WindowManager::findWindowName(const QString& windowName) {
     return m_windowMap.value(windowName, nullptr);

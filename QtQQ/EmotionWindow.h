@@ -1,14 +1,14 @@
 #pragma once
 
 #include <QWidget>
+
 #include "ui_EmotionWindow.h"
 
-class EmotionWindow : public QWidget
-{
+class EmotionWindow : public QWidget {
     Q_OBJECT
 
 public:
-    EmotionWindow(QWidget *parent = Q_NULLPTR);
+    EmotionWindow(QWidget* parent = Q_NULLPTR);
     ~EmotionWindow();
 
 signals:
