@@ -2,6 +2,7 @@
 #include <QPainter>
 #include <QMouseEvent>
 #include <QFile>
+#include <QPainterPath>
 
 #include "TitleBar.h"
 
