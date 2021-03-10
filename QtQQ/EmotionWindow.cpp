@@ -28,7 +28,7 @@ void EmotionWindow::addEmotion(int emotionNum) {
 
 void EmotionWindow::paintEvent(QPaintEvent* event) {
     QStyleOption opt;
-    opt.init(this);
+    opt.initFrom(this);
 
     QPainter painter(this);
 

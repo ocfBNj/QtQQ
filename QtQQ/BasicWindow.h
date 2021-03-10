@@ -9,7 +9,6 @@ class BasicWindow : public QDialog {
 
 public:
     BasicWindow(QWidget* parent = nullptr);
-    virtual ~BasicWindow();
 
 public:
     void loadStyleSheet(const QString& sheetName);
@@ -43,9 +42,9 @@ public slots:
     void onButtonCloseClicked();
 
 protected:
-    QPoint m_mousePoint;     // 鼠标位置
-    bool m_mousePressed;     // 鼠标是否按下
-    QColor m_colorBackground;// 背景色
-    QString m_styleName;     // 样式文件名称
-    TitleBar* m_titleBar;    // 标题栏
+    QPoint m_mousePoint;      // 鼠标位置
+    bool m_mousePressed;      // 鼠标是否按下
+    QColor m_colorBackground; // 背景色
+    QString m_styleName;      // 样式文件名称
+    TitleBar* m_titleBar;     // 标题栏
 };

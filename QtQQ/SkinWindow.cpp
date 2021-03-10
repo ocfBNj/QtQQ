@@ -38,7 +38,7 @@ void SkinWindow::initContorl() {
 
             label->setFixedSize(84, 84);
             QPalette palette;
-            palette.setColor(QPalette::Background, colorList.at(row * 3 + column));
+            palette.setColor(QPalette::Window, colorList.at(row * 3 + column));
             label->setAutoFillBackground(true);
             label->setPalette(palette);
 

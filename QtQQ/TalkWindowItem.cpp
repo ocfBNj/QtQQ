@@ -24,7 +24,7 @@ QString TalkWindowItem::getMsgLabelText() {
     return ui.msgLabel->text();
 }
 
-void TalkWindowItem::enterEvent(QEvent* event) {
+void TalkWindowItem::enterEvent(QEnterEvent* event) {
     ui.tclosebtn->setVisible(true);
 
     QWidget::enterEvent(event);
@@ -33,7 +33,7 @@ void TalkWindowItem::enterEvent(QEvent* event) {
 void TalkWindowItem::leaveEvent(QEvent* event) {
     ui.tclosebtn->setVisible(false);
 
-    QWidget::enterEvent(event);
+    QWidget::leaveEvent(event);
 }
 
 void TalkWindowItem::resizeEvent(QResizeEvent* event) {

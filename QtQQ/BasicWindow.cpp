@@ -1,10 +1,10 @@
+#include <QApplication>
 #include <QFile>
+#include <QMouseEvent>
+#include <QPainter>
 #include <QStyle>
 #include <QStyleOption>
-#include <QPainter>
-#include <QApplication>
-#include <QMouseEvent>
-#include <QDesktopWidget>
+#include <QDesktopServices>
 
 #include "BasicWindow.h"
 #include "CommonUtils.h"
@@ -20,8 +20,6 @@ BasicWindow::BasicWindow(QWidget* parent)
     connect(NotifyManager::getInstance(), &NotifyManager::signalSkinChanged,
             this, &BasicWindow::onSignalSkinChanged);
 }
-
-BasicWindow::~BasicWindow() {}
 
 void BasicWindow::loadStyleSheet(const QString& sheetName) {
     m_styleName = sheetName;
@@ -49,9 +47,11 @@ QWidget[bottomSkin=true] {
 	border-bottom-left-radius: 4px;
 	border-bottom-right-radius: 4px;
 }
-)").arg(r).arg(g).arg(b);
+)")
+                          .arg(r)
+                          .arg(g)
+                          .arg(b);
         this->setStyleSheet(styleSheet);
-
     }
     file.close();
 }
@@ -79,7 +79,8 @@ QPixmap BasicWindow::getRoundImage(const QPixmap& src, QPixmap& mask, QSize mask
 
 void BasicWindow::initBackgroundColor() {
     QStyleOption opt;
-    opt.init(this);
+    // opt.init(this);
+    opt.initFrom(this);
 
     QPainter p(this);
 
@@ -133,10 +134,11 @@ void BasicWindow::onButtonRestoreClicked() {
 
 void BasicWindow::onButtonMaxClicked() {
     m_titleBar->saveRestoreInfo(this->pos(), QSize(this->width(), this->height()));
-    QRect destopRect = QApplication::desktop()->availableGeometry();
+    /*QRect destopRect = QApplication::desktop()->availableGeometry();
     QRect factRect = QRect(destopRect.x() - 3, destopRect.y() - 3,
-                           destopRect.width() + 6, destopRect.height() + 6);
-    this->setGeometry(factRect);
+                           destopRect.width() + 6, destopRect.height() + 6);*/
+    this->showMaximized();
+    //this->setGeometry(factRect);
 }
 
 void BasicWindow::onButtonCloseClicked() {

@@ -184,7 +184,7 @@ void TitleBar::loadStyleSheet(const QString& sheetName) {
 
     if (file.isOpen()) {
         QString styleSheet = this->styleSheet();
-        styleSheet += QLatin1Literal(file.readAll());
+        styleSheet += file.readAll();
         this->setStyleSheet(styleSheet);
     }
 }
