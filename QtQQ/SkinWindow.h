@@ -1,8 +1,8 @@
 #pragma once
 
-#include <QWidget>
-#include "ui_SkinWindow.h"
 #include "BasicWindow.h"
+#include "ui_SkinWindow.h"
+#include <QWidget>
 
 class SkinWindow : public BasicWindow {
     Q_OBJECT

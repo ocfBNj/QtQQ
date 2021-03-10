@@ -6,8 +6,8 @@
 class RootContactItem : public QLabel {
     Q_OBJECT
 
-        // ¼ýÍ·½Ç¶È 
-        Q_PROPERTY(int rotation READ rotation WRITE setRotation)
+    // ç®­å¤´è§’åº¦
+    Q_PROPERTY(int rotation READ rotation WRITE setRotation)
 public:
     RootContactItem(bool hasArrow = true, QWidget* parent = nullptr);
     ~RootContactItem();

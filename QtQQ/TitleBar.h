@@ -1,16 +1,16 @@
 #pragma once
 
-#include <QWidget>
 #include <QLabel>
 #include <QPushButton>
+#include <QWidget>
 
 enum class ButtonType {
-    MIN_BUTTON = 0,     // ×îĞ¡»¯¼°¹Ø±Õ°´Å¥
-    MIN_MAX_BUTTON,     // ×îĞ¡»¯¡¢×î´ó»¯¼°¹Ø±Õ°´Å¥
-    ONLY_CLOSE_BUTTON   // Ö»ÓĞ¹Ø±Õ°´Å¥
+    MIN_BUTTON = 0,   // æœ€å°åŒ–åŠå…³é—­æŒ‰é’®
+    MIN_MAX_BUTTON,   // æœ€å°åŒ–ã€æœ€å¤§åŒ–åŠå…³é—­æŒ‰é’®
+    ONLY_CLOSE_BUTTON // åªæœ‰å…³é—­æŒ‰é’®
 };
 
-// ×Ô¶¨Òå±êÌâÀ¸
+// è‡ªå®šä¹‰æ ‡é¢˜æ 
 class TitleBar : public QWidget {
     Q_OBJECT
 
@@ -50,21 +50,21 @@ private slots:
     void onButtonCloseClicked();
 
 private:
-    QLabel* m_pIcon;               // ±êÌâÀ¸Í¼±ê
-    QLabel* m_pTitleContent;       // ±êÌâÀ¸ÄÚÈİ
-    QPushButton* m_pButtonMin;     // ×îĞ¡»¯°´Å¥
-    QPushButton* m_pButtonMax;     // ×î´ó»¯°´Å¥
-    QPushButton* m_pButtonRestore; // ×î´ó»¯»¹Ô­°´Å¥
-    QPushButton* m_pButtonClose;   // ¹Ø±Õ°´Å¥
+    QLabel* m_pIcon;               // æ ‡é¢˜æ å›¾æ ‡
+    QLabel* m_pTitleContent;       // æ ‡é¢˜æ å†…å®¹
+    QPushButton* m_pButtonMin;     // æœ€å°åŒ–æŒ‰é’®
+    QPushButton* m_pButtonMax;     // æœ€å¤§åŒ–æŒ‰é’®
+    QPushButton* m_pButtonRestore; // æœ€å¤§åŒ–è¿˜åŸæŒ‰é’®
+    QPushButton* m_pButtonClose;   // å…³é—­æŒ‰é’®
 
-    // ±£´æ´°ÌåÎ»ÖÃºÍ´óĞ¡
+    // ä¿å­˜çª—ä½“ä½ç½®å’Œå¤§å°
     QPoint m_restorePos;
     QSize m_restoreSize;
 
-    // ´°¿ÚÒÆ¶¯Ïà¹Ø
+    // çª—å£ç§»åŠ¨ç›¸å…³
     bool m_isPressed;
     QPoint m_starMovePos;
 
-    QString m_titleContent;        // ±êÌâÀ¸ÄÚÈİ
-    ButtonType m_buttonType;       // ±êÌâÀ¸ÓÒÉÏ½Ç°´Å¥ÀàĞÍ
+    QString m_titleContent;  // æ ‡é¢˜æ å†…å®¹
+    ButtonType m_buttonType; // æ ‡é¢˜æ å³ä¸Šè§’æŒ‰é’®ç±»å‹
 };

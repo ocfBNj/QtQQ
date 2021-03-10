@@ -1,9 +1,9 @@
-#include <QStyleOption>
 #include <QPainter>
+#include <QStyleOption>
 
-#include "EmotionWindow.h"
 #include "CommonUtils.h"
 #include "EmotionLabelItem.h"
+#include "EmotionWindow.h"
 
 constexpr int emotionColumn = 14;
 constexpr int emotionRow = 12;

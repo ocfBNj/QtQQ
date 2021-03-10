@@ -1,8 +1,8 @@
 #include "TalkWindowShell.h"
 #include "CommonUtils.h"
 #include "EmotionWindow.h"
-#include "TalkWindowItem.h"
 #include "TalkWindow.h"
+#include "TalkWindowItem.h"
 
 TalkWindowShell::TalkWindowShell(QWidget* parent)
     : BasicWindow(parent) {
@@ -51,10 +51,10 @@ void TalkWindowShell::onEmotionItemClicked(int emotionNum) {
 
 void TalkWindowShell::initControl() {
     loadStyleSheet("TalkWindow");
-    setWindowTitle(QStringLiteral("奇奇-聊天窗口"));
+    setWindowTitle(QStringLiteral("濂囧-鑱婂ぉ绐楀彛"));
 
     m_emotionWindow = std::make_unique<EmotionWindow>();
-    m_emotionWindow->hide(); // 隐藏表情窗口
+    m_emotionWindow->hide(); // 闅愯棌琛ㄦ儏绐楀彛
 
     QList<int> leftWidgetSize;
     leftWidgetSize << 154 << width() - 154;

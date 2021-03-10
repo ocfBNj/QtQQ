@@ -2,9 +2,9 @@
 
 #include <QtWidgets/QWidget>
 
-#include "ui_CCMainWindow.h"
 #include "BasicWindow.h"
 #include "TalkWindowShell.h"
+#include "ui_CCMainWindow.h"
 
 class CCMainWindow : public BasicWindow {
     Q_OBJECT

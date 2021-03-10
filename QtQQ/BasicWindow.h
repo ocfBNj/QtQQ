@@ -42,9 +42,9 @@ public slots:
     void onButtonCloseClicked();
 
 protected:
-    QPoint m_mousePoint;      // Êó±êÎ»ÖÃ
-    bool m_mousePressed;      // Êó±êÊÇ·ñ°´ÏÂ
-    QColor m_colorBackground; // ±³¾°É«
-    QString m_styleName;      // ÑùÊ½ÎÄ¼şÃû³Æ
-    TitleBar* m_titleBar;     // ±êÌâÀ¸
+    QPoint m_mousePoint;      // é¼ æ ‡ä½ç½®
+    bool m_mousePressed;      // é¼ æ ‡æ˜¯å¦æŒ‰ä¸‹
+    QColor m_colorBackground; // èƒŒæ™¯è‰²
+    QString m_styleName;      // æ ·å¼æ–‡ä»¶åç§°
+    TitleBar* m_titleBar;     // æ ‡é¢˜æ 
 };

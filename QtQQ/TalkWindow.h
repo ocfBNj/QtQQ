@@ -2,8 +2,8 @@
 
 #include <QWidget>
 
-#include "ui_TalkWindow.h"
 #include "TalkWindowShell.h"
+#include "ui_TalkWindow.h"
 
 class TalkWindow : public QWidget {
     Q_OBJECT

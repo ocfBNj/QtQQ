@@ -1,16 +1,16 @@
-#include <QProxyStyle>
-#include <QPainter>
-#include <QTimer>
-#include <QFontMetrics>
 #include <QApplication>
+#include <QFontMetrics>
 #include <QMouseEvent>
+#include <QPainter>
+#include <QProxyStyle>
+#include <QTimer>
 
 #include "CCMainWindow.h"
-#include "SkinWindow.h"
-#include "SysTray.h"
+#include "ContactItem.h"
 #include "NotifyManager.h"
 #include "RootContactItem.h"
-#include "ContactItem.h"
+#include "SkinWindow.h"
+#include "SysTray.h"
 #include "WindowManager.h"
 
 class CustomProxyStyle : public QProxyStyle {
@@ -40,7 +40,8 @@ void CCMainWindow::initTimer() {
     timer->setInterval(500);
     connect(timer, &QTimer::timeout, [level = 0, this]() mutable {
         setLevelPixmap(level++);
-        if (level == 100) level = 0;
+        if (level == 100)
+            level = 0;
     });
     timer->start();
 }
@@ -69,9 +70,9 @@ void CCMainWindow::initControl() {
     ui.bottomLayout->addWidget(addOtherAppExtension(":/Resources/MainWindow/app/app_9.png", "app_9"));
     ui.bottomLayout->addStretch();
 
-    // ¸öÐÔÇ©Ãû
+    // ä¸ªæ€§ç­¾å
     ui.lineEdit->installEventFilter(this);
-    // ºÃÓÑËÑË÷
+    // å¥½å‹æœç´¢
     ui.searchLineEdit->installEventFilter(this);
 
     connect(ui.sysclose, &QPushButton::clicked, this, &CCMainWindow::onShowQuit);
@@ -87,7 +88,7 @@ void CCMainWindow::initControl() {
 void CCMainWindow::setUserName(const QString& username) {
     ui.userName->adjustSize();
 
-    // ÎÄ±¾¹ý³¤Ôò½øÐÐÊ¡ÂÔ
+    // æ–‡æœ¬è¿‡é•¿åˆ™è¿›è¡Œçœç•¥
     ui.userName->setText(
         ui.userName->fontMetrics().elidedText(username, Qt::ElideRight, ui.userName->width()));
 }
@@ -149,30 +150,30 @@ QWidget* CCMainWindow::addOtherAppExtension(const QString& appPath, const QStrin
 }
 
 void CCMainWindow::initContactTree() {
-    // Õ¹¿ªÓëÊÕËõÊ±µÄÐÅºÅ
+    // å±•å¼€ä¸Žæ”¶ç¼©æ—¶çš„ä¿¡å·
     connect(ui.treeWidget, &QTreeWidget::itemClicked, this, &CCMainWindow::onItemClicked);
     connect(ui.treeWidget, &QTreeWidget::itemExpanded, this, &CCMainWindow::onItemExpanded);
     connect(ui.treeWidget, &QTreeWidget::itemCollapsed, this, &CCMainWindow::onItemCollapsed);
     connect(ui.treeWidget, &QTreeWidget::itemDoubleClicked, this, &CCMainWindow::onItemDoubleClicked);
 
-    // ¸ù½Úµã
+    // æ ¹èŠ‚ç‚¹
     QTreeWidgetItem* rootGroupItem = new QTreeWidgetItem;
     rootGroupItem->setChildIndicatorPolicy(QTreeWidgetItem::ShowIndicator);
     rootGroupItem->setData(0, Qt::UserRole, 0);
 
     RootContactItem* itemName = new RootContactItem(true, ui.treeWidget);
-    QString groupName = u8"ÆæÅ£¿Æ¼¼";
+    QString groupName = u8"å¥‡ç‰›ç§‘æŠ€";
     itemName->setText(groupName);
 
-    // ²åÈë·Ö×é½Úµã
+    // æ’å…¥åˆ†ç»„èŠ‚ç‚¹
     ui.treeWidget->addTopLevelItem(rootGroupItem);
     ui.treeWidget->setItemWidget(rootGroupItem, 0, itemName);
 
     QStringList compDeps;
-    compDeps << QStringLiteral("¹«Ë¾Èº");
-    compDeps << QStringLiteral("ÈËÊÂ²¿");
-    compDeps << QStringLiteral("ÑÐ·¢²¿");
-    compDeps << QStringLiteral("ÊÐ³¡²¿");
+    compDeps << QStringLiteral("å…¬å¸ç¾¤");
+    compDeps << QStringLiteral("äººäº‹éƒ¨");
+    compDeps << QStringLiteral("ç ”å‘éƒ¨");
+    compDeps << QStringLiteral("å¸‚åœºéƒ¨");
 
     for (const auto& dep : compDeps) {
         addCompanyDeps(rootGroupItem, dep);
@@ -180,7 +181,7 @@ void CCMainWindow::initContactTree() {
 }
 
 void CCMainWindow::resizeEvent(QResizeEvent* event) {
-    setUserName(QStringLiteral("º£½«ºÓÍÆ×ß"));
+    setUserName(QStringLiteral("æµ·å°†æ²³æŽ¨èµ°"));
 
     BasicWindow::resizeEvent(event);
 }
@@ -205,7 +206,10 @@ QPushButton#searchBtn:hover {
 QPushButton#searchBtn:pressed {
     border-image: url(:/Resources/MainWindow/search/main_search_delhighdown.png);
 }
-)").arg(m_colorBackground.red()).arg(m_colorBackground.green()).arg(m_colorBackground.blue()));
+)")
+                                               .arg(m_colorBackground.red())
+                                               .arg(m_colorBackground.green())
+                                               .arg(m_colorBackground.blue()));
         } else if (event->type() == QEvent::FocusOut) {
             updateSearchStyle();
         }
@@ -234,7 +238,8 @@ void CCMainWindow::onItemExpanded(QTreeWidgetItem* item) {
     bool isChild = item->data(0, Qt::UserRole).toBool();
     if (!isChild) {
         if (auto rootItem = dynamic_cast<RootContactItem*>(
-            ui.treeWidget->itemWidget(item, 0)); rootItem) {
+                ui.treeWidget->itemWidget(item, 0));
+            rootItem) {
             rootItem->setExpanded(true);
         }
     }
@@ -244,7 +249,8 @@ void CCMainWindow::onItemCollapsed(QTreeWidgetItem* item) {
     bool isChild = item->data(0, Qt::UserRole).toBool();
     if (!isChild) {
         if (auto rootItem = dynamic_cast<RootContactItem*>(
-            ui.treeWidget->itemWidget(item, 0)); rootItem) {
+                ui.treeWidget->itemWidget(item, 0));
+            rootItem) {
             rootItem->setExpanded(false);
         }
     }
@@ -255,13 +261,13 @@ void CCMainWindow::onItemDoubleClicked(QTreeWidgetItem* item, int column) {
     if (isChild) {
         QString group = m_groupMap.value(item);
 
-        if (group == QStringLiteral("¹«Ë¾Èº")) {
+        if (group == QStringLiteral("å…¬å¸ç¾¤")) {
             WindowManager::getInstance()->addNewTalkWindow(item->data(0, Qt::UserRole + 1).toString(), GroupType::COMPANY);
-        } else if (group == QStringLiteral("ÈËÊÂ²¿")) {
+        } else if (group == QStringLiteral("äººäº‹éƒ¨")) {
             WindowManager::getInstance()->addNewTalkWindow(item->data(0, Qt::UserRole + 1).toString(), GroupType::PERSONELGROUP);
-        } else if (group == QStringLiteral("ÊÐ³¡²¿")) {
+        } else if (group == QStringLiteral("å¸‚åœºéƒ¨")) {
             WindowManager::getInstance()->addNewTalkWindow(item->data(0, Qt::UserRole + 1).toString(), GroupType::MARKETGROUP);
-        } else if (group == QStringLiteral("ÑÐ·¢²¿")) {
+        } else if (group == QStringLiteral("ç ”å‘éƒ¨")) {
             WindowManager::getInstance()->addNewTalkWindow(item->data(0, Qt::UserRole + 1).toString(), GroupType::DEVELOPMENTGROUP);
         }
     }
@@ -277,7 +283,10 @@ QWidget#searchWidget {
 QPushButton#searchBtn {
     border-image: url(:/Resources/MainWindow/search/search_icon.png);
 }
-)").arg(m_colorBackground.red()).arg(m_colorBackground.green()).arg(m_colorBackground.blue()));
+)")
+                                       .arg(m_colorBackground.red())
+                                       .arg(m_colorBackground.green())
+                                       .arg(m_colorBackground.blue()));
 }
 
 void CCMainWindow::addCompanyDeps(QTreeWidgetItem* pRootGroupItem, const QString& sDeps) {
@@ -286,7 +295,7 @@ void CCMainWindow::addCompanyDeps(QTreeWidgetItem* pRootGroupItem, const QString
     QPixmap pix;
     pix.load(":/Resources/MainWindow/head_mask.png");
 
-    // Ìí¼Ó×Ó½Úµã
+    // æ·»åŠ å­èŠ‚ç‚¹
     pChild->setData(0, Qt::UserRole, 1);
     pChild->setData(0, Qt::UserRole + 1, QString::number((int)pChild));
     ContactItem* pContactItem = new ContactItem(ui.treeWidget);

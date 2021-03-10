@@ -1,6 +1,6 @@
 #include "SkinWindow.h"
-#include "QClickLabel.h"
 #include "NotifyManager.h"
+#include "QClickLabel.h"
 
 SkinWindow::SkinWindow(QWidget* parent)
     : BasicWindow(parent) {
@@ -24,8 +24,7 @@ void SkinWindow::initContorl() {
         QColor(79, 169, 172),
         QColor(155, 183, 154),
         QColor(128, 77, 77),
-        QColor(240, 188, 189)
-    };
+        QColor(240, 188, 189)};
 
     QGridLayout* layout = static_cast<QGridLayout*>(ui.bodyWidget->layout());
     for (int row = 0; row != 3; row++) {

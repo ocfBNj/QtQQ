@@ -1,10 +1,10 @@
 #include <QApplication>
+#include <QDesktopServices>
 #include <QFile>
 #include <QMouseEvent>
 #include <QPainter>
 #include <QStyle>
 #include <QStyleOption>
-#include <QDesktopServices>
 
 #include "BasicWindow.h"
 #include "CommonUtils.h"
@@ -30,7 +30,7 @@ void BasicWindow::loadStyleSheet(const QString& sheetName) {
         this->setStyleSheet("");
         QString styleSheet = QLatin1String(file.readAll());
 
-        // »ñÈ¡ÓÃ»§µ±Ç°Æ¤·ôµÄRGBÖµ
+        // è·å–ç”¨æˆ·å½“å‰çš®è‚¤çš„RGBå€¼
         QString r = QString::number(m_colorBackground.red());
         QString g = QString::number(m_colorBackground.green());
         QString b = QString::number(m_colorBackground.blue());
@@ -63,7 +63,7 @@ QPixmap BasicWindow::getRoundImage(const QPixmap& src, QPixmap& mask, QSize mask
         mask = mask.scaled(maskSize, Qt::KeepAspectRatio, Qt::SmoothTransformation);
     }
 
-    // ±£´æ×ª»»ºóµÄÍ·Ïñ
+    // ä¿å­˜è½¬æ¢åçš„å¤´åƒ
     QImage resultImage(maskSize, QImage::Format_ARGB32_Premultiplied);
     QPainter painter(&resultImage);
     painter.setCompositionMode(QPainter::CompositionMode_Source);

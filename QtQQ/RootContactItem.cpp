@@ -7,7 +7,7 @@ RootContactItem::RootContactItem(bool hasArrow, QWidget* parent)
     setFixedHeight(32);
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 
-    // ³õÊ¼»¯ÊôÐÔ¶¯»­
+    // åˆå§‹åŒ–å±žæ€§åŠ¨ç”»
     m_animation = new QPropertyAnimation(this, "rotation");
     m_animation->setDuration(100);
     m_animation->setEasingCurve(QEasingCurve::InQuad);

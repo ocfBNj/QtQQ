@@ -1,8 +1,8 @@
-#include <QPainter>
-#include <QFile>
-#include <QWidget>
 #include <QApplication>
+#include <QFile>
+#include <QPainter>
 #include <QSettings>
+#include <QWidget>
 
 #include "CommonUtils.h"
 

@@ -1,10 +1,10 @@
 #pragma once
 
 #include <QPixmap>
-#include <QSize>
 #include <QProxyStyle>
+#include <QSize>
 
-// ¸Ä±äÄ¬ÈÏµÄ²¿¼ş·ç¸ñ
+// æ”¹å˜é»˜è®¤çš„éƒ¨ä»¶é£æ ¼
 class CustomProxyStyle : public QProxyStyle {
 public:
     CustomProxyStyle(QObject* parent) {
@@ -30,4 +30,3 @@ public:
     static void setDefaultSkinColor(const QColor& color);
     static QColor getDefaultSkinColor();
 };
-

@@ -23,7 +23,6 @@ void WindowManager::addWindowName(const QString& windowName, QWidget* widget) {
     }
 }
 
-
 WindowManager* WindowManager::getInstance() {
     return theInstance;
 }
@@ -43,20 +42,20 @@ void WindowManager::addNewTalkWindow(const QString& uid, GroupType groupType, co
 
         switch (groupType) {
         case GroupType::COMPANY:
-            talkWindow->setWindowName(QStringLiteral("ÆæÅ£¿Æ¼¼-Ô½·ÖÏíÔ½ÓµÓÐ"));
-            talkWindowItem->setMsgLabelContent(QStringLiteral("¹«Ë¾Èº"));
+            talkWindow->setWindowName(QStringLiteral("å¥‡ç‰›ç§‘æŠ€-è¶Šåˆ†äº«è¶Šæ‹¥æœ‰"));
+            talkWindowItem->setMsgLabelContent(QStringLiteral("å…¬å¸ç¾¤"));
             break;
         case GroupType::PERSONELGROUP:
-            talkWindow->setWindowName(QStringLiteral("¹«ÐÄ¡¢ÃñÐÄ¡¢°®ÐÄ¡¢ÊÂÊÂÔÚÐÄ"));
-            talkWindowItem->setMsgLabelContent(QStringLiteral("ÈËÊÂÈº"));
+            talkWindow->setWindowName(QStringLiteral("å…¬å¿ƒã€æ°‘å¿ƒã€çˆ±å¿ƒã€äº‹äº‹åœ¨å¿ƒ"));
+            talkWindowItem->setMsgLabelContent(QStringLiteral("äººäº‹ç¾¤"));
             break;
         case GroupType::DEVELOPMENTGROUP:
-            talkWindow->setWindowName(QStringLiteral("Ö»ÓÐÁ½ÖÖ±à³ÌÓïÑÔ£¬Ò»ÖÖÊÇÌìÌì°¤ÂîµÄ£¬ÁíÒ»ÖÖÊÇÃ»ÈËÓÃµÄ"));
-            talkWindowItem->setMsgLabelContent(QStringLiteral("¿ª·¢Èº"));
+            talkWindow->setWindowName(QStringLiteral("åªæœ‰ä¸¤ç§ç¼–ç¨‹è¯­è¨€ï¼Œä¸€ç§æ˜¯å¤©å¤©æŒ¨éª‚çš„ï¼Œå¦ä¸€ç§æ˜¯æ²¡äººç”¨çš„"));
+            talkWindowItem->setMsgLabelContent(QStringLiteral("å¼€å‘ç¾¤"));
             break;
         case GroupType::MARKETGROUP:
-            talkWindow->setWindowName(QStringLiteral("½ñÌì¹¤×÷²»Å¬Á¦£¬Ã÷ÌìÅ¬Á¦ÕÒ¹¤×÷"));
-            talkWindowItem->setMsgLabelContent(QStringLiteral("ÊÐ³¡Èº"));
+            talkWindow->setWindowName(QStringLiteral("ä»Šå¤©å·¥ä½œä¸åŠªåŠ›ï¼Œæ˜Žå¤©åŠªåŠ›æ‰¾å·¥ä½œ"));
+            talkWindowItem->setMsgLabelContent(QStringLiteral("å¸‚åœºç¾¤"));
             break;
         case GroupType::PTOP:
             break;

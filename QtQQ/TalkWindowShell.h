@@ -2,19 +2,19 @@
 
 #include <memory>
 
-#include "ui_TalkWindowShell.h"
 #include "BasicWindow.h"
+#include "ui_TalkWindowShell.h"
 
 class TalkWindow;
 class TalkWindowItem;
 class EmotionWindow;
 
 enum class GroupType {
-    COMPANY,            // ¹«Ë¾Èº
-    PERSONELGROUP,      // ÈËÊÂ²¿
-    DEVELOPMENTGROUP,   // ÑĞ·¢²¿
-    MARKETGROUP,        // ÊĞ³¡²¿
-    PTOP,               // µ¥¶ÀÁÄÌì
+    COMPANY,          // å…¬å¸ç¾¤
+    PERSONELGROUP,    // äººäº‹éƒ¨
+    DEVELOPMENTGROUP, // ç ”å‘éƒ¨
+    MARKETGROUP,      // å¸‚åœºéƒ¨
+    PTOP,             // å•ç‹¬èŠå¤©
 };
 
 class TalkWindowShell : public BasicWindow {
@@ -31,9 +31,9 @@ public slots:
     void onEmotionBtnClicked(bool);
 
 private slots:
-    // ×ó²àÁĞ±íµã»÷ºóÖ´ĞĞ
+    // å·¦ä¾§åˆ—è¡¨ç‚¹å‡»åæ‰§è¡Œ
     void onTalkWindowItemClicked(QListWidgetItem* item);
-    // ±íÇé±»Ñ¡ÖĞ
+    // è¡¨æƒ…è¢«é€‰ä¸­
     void onEmotionItemClicked(int emotionNum);
 
 private:

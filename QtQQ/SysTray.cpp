@@ -1,10 +1,10 @@
-#include <QWidget>
 #include <QAction>
+#include <QWidget>
 #include <memory>
 
-#include "SysTray.h"
-#include "CustomMenu.h"
 #include "CCMainWindow.h"
+#include "CustomMenu.h"
+#include "SysTray.h"
 
 SysTray::SysTray(QWidget* parent)
     : parent(parent), QSystemTrayIcon(parent) {
@@ -23,10 +23,10 @@ void SysTray::initSystemTray() {
 void SysTray::addSysTrayMenu() {
     auto customMenu = std::make_unique<CustomMenu>(parent);
     customMenu->addCustomMenu("onShow",
-                              ":/Resources/MainWindow/app/logo.ico", QStringLiteral("´ò¿ªÖ÷Ãæ°å"));
+                              ":/Resources/MainWindow/app/logo.ico", QStringLiteral("æ‰“å¼€ä¸»é¢æ¿"));
     customMenu->addCustomMenu("onQuit",
                               ":/Resources/MainWindow/app/page_close_btn_hover.png",
-                              QStringLiteral("ÍË³ö"));
+                              QStringLiteral("é€€å‡º"));
 
     connect(customMenu->getAction("onShow"), &QAction::triggered, static_cast<CCMainWindow*>(parent), &CCMainWindow::onShowNormal);
     connect(customMenu->getAction("onQuit"), &QAction::triggered, static_cast<CCMainWindow*>(parent), &CCMainWindow::onShowQuit);
@@ -41,4 +41,3 @@ void SysTray::onIconActivated(QSystemTrayIcon::ActivationReason reason) {
         addSysTrayMenu();
     }
 }
-
