@@ -67,11 +67,11 @@ void TitleBar::getRestoreInfo(QPoint& point, QSize& size) {
 }
 
 void TitleBar::paintEvent(QPaintEvent* event) {
-    QPainter painter(this);
-    QPainterPath pathBack;
-    pathBack.setFillRule(Qt::WindingFill);
-    pathBack.addRoundedRect(QRect(0, 0, width(), height()), 3, 3);
-    painter.setRenderHint(QPainter::SmoothPixmapTransform, true);
+//    QPainter painter(this);
+//    QPainterPath pathBack;
+//    pathBack.setFillRule(Qt::WindingFill);
+//    pathBack.addRoundedRect(QRect(0, 0, width(), height()), 3, 3);
+//    painter.setRenderHint(QPainter::SmoothPixmapTransform, true);
 
     // 父窗口宽度变化时，修改标题栏大小
     if (width() != parentWidget()->width()) {

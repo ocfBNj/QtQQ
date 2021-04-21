@@ -96,14 +96,14 @@ void BasicWindow::paintEvent(QPaintEvent* event) {
 void BasicWindow::mousePressEvent(QMouseEvent* event) {
     if (event->button() == Qt::LeftButton) {
         m_mousePressed = true;
-        m_mousePoint = event->globalPos() - this->pos();
+        m_mousePoint = event->globalPosition().toPoint() - this->pos();
         event->accept();
     }
 }
 
 void BasicWindow::mouseMoveEvent(QMouseEvent* event) {
     if (m_mousePressed && (event->buttons() & Qt::LeftButton)) {
-        move(event->globalPos() - m_mousePoint);
+        move(event->globalPosition().toPoint() - m_mousePoint);
         event->accept();
     }
 }
@@ -126,14 +126,15 @@ void BasicWindow::onButtonMinClicked() {
 }
 
 void BasicWindow::onButtonRestoreClicked() {
-    QPoint windowPos;
-    QSize windowSize;
-    m_titleBar->getRestoreInfo(windowPos, windowSize);
-    this->setGeometry(QRect(windowPos, windowSize));
+//    QPoint windowPos;
+//    QSize windowSize;
+//    m_titleBar->getRestoreInfo(windowPos, windowSize);
+//    this->setGeometry(QRect(windowPos, windowSize));
+    this->showNormal();
 }
 
 void BasicWindow::onButtonMaxClicked() {
-    m_titleBar->saveRestoreInfo(this->pos(), QSize(this->width(), this->height()));
+//    m_titleBar->saveRestoreInfo(this->pos(), QSize(this->width(), this->height()));
     /*QRect destopRect = QApplication::desktop()->availableGeometry();
     QRect factRect = QRect(destopRect.x() - 3, destopRect.y() - 3,
                            destopRect.width() + 6, destopRect.height() + 6);*/
